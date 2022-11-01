@@ -27,7 +27,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initSphere() {
-        sphere.load("test2022 ", packageName)
+        sphere.load("test2022", packageName)
+    }
+
+    private fun setupList() {
+        list = findViewById(R.id.list)
         Layers(this, sphere).apply {
             LANGUAGE = true
             LAYER = true
@@ -35,9 +39,5 @@ class MainActivity : AppCompatActivity() {
         }.createItem().forEach {
             list.addView(it)
         }
-    }
-
-    private fun setupList() {
-        list = findViewById(R.id.list)
     }
 }
