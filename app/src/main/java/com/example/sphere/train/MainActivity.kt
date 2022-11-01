@@ -16,6 +16,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupSphere() {
-        // TODO findViewById<SphereMap>(R.id.sphere).load("", "")
+        findViewById<SphereMap>(R.id.sphere).load("test2022 ", packageName)
     }
 }
