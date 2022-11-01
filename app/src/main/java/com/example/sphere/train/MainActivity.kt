@@ -23,6 +23,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initSphere() {
-        sphere.load("test2022 ", packageName)
+        sphere.load("test2022", packageName)
     }
 }
