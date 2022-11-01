@@ -5,6 +5,8 @@ import android.os.Bundle
 import th.or.gistda.sphere.SphereMap
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var sphere: SphereMap
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,6 +18,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupSphere() {
-        findViewById<SphereMap>(R.id.sphere).load("test2022 ", packageName)
+        sphere = findViewById(R.id.sphere)
+        initSphere()
+    }
+
+    private fun initSphere() {
+        sphere.load("test2022 ", packageName)
     }
 }
