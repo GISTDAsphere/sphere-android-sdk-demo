@@ -28,6 +28,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun initSphere() {
         sphere.load("test2022 ", packageName)
+        Layers(this, sphere).apply {
+            LANGUAGE = true
+            LAYER = true
+            LAYER_ADV = true
+        }.createItem().forEach {
+            list.addView(it)
+        }
     }
 
     private fun setupList() {
