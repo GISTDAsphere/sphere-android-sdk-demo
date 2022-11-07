@@ -59,7 +59,7 @@ class Layers(
                     sphere.call("Layers.remove", wmts)
                 })
             }
-            add(createButton("Clear") {
+            add(createButton("layers clear") {
                 sphere.call("Layers.clear")
             })
         }

@@ -179,7 +179,7 @@ class Overlays(
                 add(this)
             }
         }
-        createButton("clear") {
+        createButton("Overlays clear") {
             sphere.call("Overlays.clear")
         }.run {
             add(this)
