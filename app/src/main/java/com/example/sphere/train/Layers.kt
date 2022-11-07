@@ -16,26 +16,26 @@ class Layers(
 
     fun createItem() = mutableListOf<View>().apply {
         if (LANGUAGE) {
-            add(createItem("language") {
+            add(createButton("language") {
                 sphere.call("Layers.language") {
                     Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
                 }
             })
-            add(createItem("th") {
+            add(createButton("th") {
                 sphere.call("Layers.language", JSONArray().put("th"))
             })
-            add(createItem("en") {
+            add(createButton("en") {
                 sphere.call("Layers.language", JSONArray().put("en"))
             })
         }
         if (LAYER) {
-            add(createItem("Simple Base") {
+            add(createButton("Simple Base") {
                 sphere.call("Layers.setBase", SphereMap.SphereStatic("Layers", "SIMPLE"))
             })
-            add(createItem("Hybrid Base") {
+            add(createButton("Hybrid Base") {
                 sphere.call("Layers.setBase", SphereMap.SphereStatic("Layers", "HYBRID"))
             })
-            add(createItem("Traffic Layer") {
+            add(createButton("Traffic Layer") {
                 sphere.call("Layers.add", SphereMap.SphereStatic("Layers", "TRAFFIC"))
             })
             if (LAYER_ADV) {
@@ -60,14 +60,14 @@ class Layers(
                         )
                     )
                 )
-                add(createItem("Add WMS Layer") {
+                add(createButton("Add WMS Layer") {
                     sphere.call("Layers.add", wms)
                 })
-                add(createItem("Remove WMS Layer") {
+                add(createButton("Remove WMS Layer") {
                     sphere.call("Layers.remove", wms)
                 })
             }
-            add(createItem("Clear") {
+            add(createButton("Clear") {
                 sphere.call("Layers.clear")
             })
         }

@@ -16,32 +16,32 @@ class Map(private val context: Context, private val sphere: SphereMap) : Train(c
 
     fun createItem() = mutableListOf<View>().apply {
         if (ZOOM) {
-            add(createItem("zoom") {
+            add(createButton("zoom") {
                 val zoom = (1..20).random()
                 sphere.call("zoom", zoom)
             })
-            add(createItem("zoom (get)") {
+            add(createButton("zoom (get)") {
                 sphere.call("zoom") {
                     Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
                 }
             })
         }
         if (LOCATION) {
-            add(createItem("location") {
+            add(createButton("location") {
                 sphere.call(
                     "location", JSONObject()
                         .put("lon", (90..100).random())
                         .put("lat", (10..20).random())
                 )
             })
-            add(createItem("location (get)") {
+            add(createButton("location (get)") {
                 sphere.call("location") {
                     Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
                 }
             })
         }
         if (BOUND) {
-            add(createItem("bound") {
+            add(createButton("bound") {
                 sphere.call(
                     "bound",
                     JSONObject()
@@ -53,7 +53,7 @@ class Map(private val context: Context, private val sphere: SphereMap) : Train(c
             })
         }
         if (MOVE) {
-            add(createItem("left") {
+            add(createButton("left") {
                 sphere.call(
                     "move",
                     JSONObject()
@@ -61,7 +61,7 @@ class Map(private val context: Context, private val sphere: SphereMap) : Train(c
                         .put("y", 0)
                 )
             })
-            add(createItem("right") {
+            add(createButton("right") {
                 sphere.call(
                     "move",
                     JSONObject()
@@ -69,7 +69,7 @@ class Map(private val context: Context, private val sphere: SphereMap) : Train(c
                         .put("y", 0)
                 )
             })
-            add(createItem("up") {
+            add(createButton("up") {
                 sphere.call(
                     "move",
                     JSONObject()
@@ -77,7 +77,7 @@ class Map(private val context: Context, private val sphere: SphereMap) : Train(c
                         .put("y", -100)
                 )
             })
-            add(createItem("down") {
+            add(createButton("down") {
                 sphere.call(
                     "move",
                     JSONObject()
@@ -87,19 +87,19 @@ class Map(private val context: Context, private val sphere: SphereMap) : Train(c
             })
         }
         if (MODE) {
-            add(createItem("Dark") {
+            add(createButton("Dark") {
                 sphere.call(
                     "enableFilter",
                     SphereMap.SphereStatic("Filter", "Dark")
                 )
             })
-            add(createItem("Light") {
+            add(createButton("Light") {
                 sphere.call(
                     "enableFilter",
                     SphereMap.SphereStatic("Filter", "Light")
                 )
             })
-            add(createItem("None") {
+            add(createButton("None") {
                 sphere.call(
                     "enableFilter",
                     SphereMap.SphereStatic("Filter", "None")
