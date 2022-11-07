@@ -39,32 +39,24 @@ class Layers(
                 sphere.call("Layers.add", SphereMap.SphereStatic("Layers", "TRAFFIC"))
             })
             if (LAYER_ADV) {
-                val wms = SphereMap.SphereObject(
+                val wmts = SphereMap.SphereObject(
                     "Layer",
                     listOf(
-                        "roadnet2:Road_FGDS",
+                        "bluemarble_terrain",
                         mapOf(
-                            "type" to SphereMap.SphereStatic("LayerType", "WMS"),
-                            // TODO: CHANGE URL
-                            "url" to "https://msq.thaimap.longdo.org/vector/test-tile.php",
-                            "zoomRange" to mapOf("min" to 1, "max" to 9),
-                            "refresh" to 180,
+                            "type" to SphereMap.SphereStatic("LayerType", "WMTS_REST"),
+                            "url" to "https://ms.longdo.com/mapproxy/wmts",
+                            "srs" to "GLOBAL_WEBMERCATOR",
                             "opacity" to 0.5,
-                            "zIndex" to 10,
-                            "bound" to mapOf(
-                                "minLon" to 100,
-                                "minLat" to 10,
-                                "maxLon" to 105,
-                                "maxLat" to 20
-                            )
+                            "zoomRange" to mapOf("min" to 1, "max" to 9)
                         )
                     )
                 )
-                add(createButton("Add WMS Layer") {
-                    sphere.call("Layers.add", wms)
+                add(createButton("Add WMTS Layer") {
+                    sphere.call("Layers.add", wmts)
                 })
                 add(createButton("Remove WMS Layer") {
-                    sphere.call("Layers.remove", wms)
+                    sphere.call("Layers.remove", wmts)
                 })
             }
             add(createButton("Clear") {
