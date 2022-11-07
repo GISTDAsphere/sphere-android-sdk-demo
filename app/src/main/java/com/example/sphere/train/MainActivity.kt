@@ -35,13 +35,39 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupList() {
         list = findViewById(R.id.list)
-        Layers(this, sphere).apply {
-            LANGUAGE = true
-            LAYER = true
-            LAYER_ADV = true
-        }.createItem().forEach {
-            list.addView(it)
-        }
+        Layers(this, sphere)
+            .apply {
+                LANGUAGE = false
+                LAYER = false
+                LAYER_ADV = false
+            }
+            .createItem()
+            .forEach {
+                list.addView(it)
+            }
+        Map(this, sphere)
+            .apply {
+                ZOOM = false
+                LOCATION = false
+                BOUND = false
+                MOVE = false
+                MODE = false
+            }
+            .createItem()
+            .forEach {
+                list.addView(it)
+            }
+        Overlays(this, sphere)
+            .apply {
+                MARKER = false
+                POPUP = false
+                GEOMETRY = false
+                DASH = false
+            }
+            .createItem()
+            .forEach {
+                list.addView(it)
+            }
     }
 
     @JavascriptInterface
