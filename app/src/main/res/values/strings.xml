@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">sphere-train</string>
+    <string name="format_location">Location: %.3f, %.3f</string>
 </resources>
